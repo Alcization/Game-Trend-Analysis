@@ -4,10 +4,11 @@
 
 ## Dữ liệu
 
-- Tệp dữ liệu: `games.csv` 
+- Tệp dữ liệu: `games.csv` đặt cùng cấp với chương trình chính.
 - Nguồn dữ liệu: https://www.kaggle.com/datasets/fronkongames/steam-games-dataset.
 - Chương trình chính: `assignment.py`
 - Biểu đồ: `charts/`
+- Slide báo cáo: https://canva.link/5am5kuarrhzzri9
 
 ## Cài đặt
 
