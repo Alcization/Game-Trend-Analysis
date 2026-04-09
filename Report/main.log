@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.21)  21 MAR 2026 13:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.21)  9 APR 2026 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1193,6 +1193,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 15.
  (C:\Users\Khanh\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 48.
+ (C:\Users\Khanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
+File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1
 
 
@@ -1205,10 +1209,6 @@ File: Images/bachkhoa_logo.png Graphic file (type png)
 <use Images/bachkhoa_logo.png>
 Package pdftex.def Info: Images/bachkhoa_logo.png  used on input line 6.
 (pdftex.def)             Requested size: 22.75887pt x 22.75887pt.
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 6.
- (C:\Users\Khanh\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T5/cmtt/m/n' tried instead on input line 6.
 
@@ -1297,17 +1297,17 @@ File: Images/bachkhoa_logo.png Graphic file (type png)
 Package pdftex.def Info: Images/bachkhoa_logo.png  used on input line 360.
 (pdftex.def)             Requested size: 22.75887pt x 22.75887pt.
  [14]
-<Images/01_games_distribution.png, id=257, 1003.5894pt x 424.7067pt>
+<Images/01_games_distribution.png, id=258, 1003.5894pt x 424.7067pt>
 File: Images/01_games_distribution.png Graphic file (type png)
 <use Images/01_games_distribution.png>
 Package pdftex.def Info: Images/01_games_distribution.png  used on input line 367.
 (pdftex.def)             Requested size: 334.60422pt x 141.59879pt.
-<Images/02_free_games_percentage.png, id=259, 1003.5894pt x 424.7067pt>
+<Images/02_free_games_percentage.png, id=260, 1003.5894pt x 424.7067pt>
 File: Images/02_free_games_percentage.png Graphic file (type png)
 <use Images/02_free_games_percentage.png>
 Package pdftex.def Info: Images/02_free_games_percentage.png  used on input line 376.
 (pdftex.def)             Requested size: 200.75996pt x 84.95926pt.
-<Images/03_average_price.png, id=260, 859.0494pt x 424.7067pt>
+<Images/03_average_price.png, id=261, 859.0494pt x 424.7067pt>
 File: Images/03_average_price.png Graphic file (type png)
 <use Images/03_average_price.png>
 Package pdftex.def Info: Images/03_average_price.png  used on input line 377.
@@ -1322,17 +1322,17 @@ File: Images/bachkhoa_logo.png Graphic file (type png)
 Package pdftex.def Info: Images/bachkhoa_logo.png  used on input line 382.
 (pdftex.def)             Requested size: 22.75887pt x 22.75887pt.
 [15 <./Images/01_games_distribution.png> <./Images/02_free_games_percentage.png> <./Images/03_average_price.png>]
-<Images/04_positive_reviews.png, id=272, 1003.5894pt x 424.7067pt>
+<Images/04_positive_reviews.png, id=273, 1003.5894pt x 424.7067pt>
 File: Images/04_positive_reviews.png Graphic file (type png)
 <use Images/04_positive_reviews.png>
 Package pdftex.def Info: Images/04_positive_reviews.png  used on input line 388.
 (pdftex.def)             Requested size: 334.60422pt x 141.59879pt.
-<Images/06_description_length.png, id=274, 1003.5894pt x 424.7067pt>
+<Images/06_description_length.png, id=275, 1003.5894pt x 424.7067pt>
 File: Images/06_description_length.png Graphic file (type png)
 <use Images/06_description_length.png>
 Package pdftex.def Info: Images/06_description_length.png  used on input line 397.
 (pdftex.def)             Requested size: 200.75996pt x 84.95926pt.
-<Images/07_os_support.png, id=275, 859.0494pt x 424.7067pt>
+<Images/07_os_support.png, id=276, 859.0494pt x 424.7067pt>
 File: Images/07_os_support.png Graphic file (type png)
 <use Images/07_os_support.png>
 Package pdftex.def Info: Images/07_os_support.png  used on input line 398.
@@ -1347,22 +1347,22 @@ File: Images/bachkhoa_logo.png Graphic file (type png)
 Package pdftex.def Info: Images/bachkhoa_logo.png  used on input line 404.
 (pdftex.def)             Requested size: 22.75887pt x 22.75887pt.
 [16 <./Images/04_positive_reviews.png> <./Images/06_description_length.png> <./Images/07_os_support.png>]
-<Images/05_genre_heatmap.png, id=288, 1062.8508pt x 713.7867pt>
+<Images/05_genre_heatmap.png, id=289, 1062.8508pt x 713.7867pt>
 File: Images/05_genre_heatmap.png Graphic file (type png)
 <use Images/05_genre_heatmap.png>
 Package pdftex.def Info: Images/05_genre_heatmap.png  used on input line 410.
 (pdftex.def)             Requested size: 334.60422pt x 224.7133pt.
-<Images/08_genre_trends_over_years.png, id=290, 1150.5384pt x 569.2467pt>
+<Images/08_genre_trends_over_years.png, id=291, 1150.5384pt x 569.2467pt>
 File: Images/08_genre_trends_over_years.png Graphic file (type png)
 <use Images/08_genre_trends_over_years.png>
 Package pdftex.def Info: Images/08_genre_trends_over_years.png  used on input line 418.
 (pdftex.def)             Requested size: 200.75996pt x 99.32434pt.
-<Images/09_genre_percentage_trends.png, id=291, 1150.7793pt x 569.2467pt>
+<Images/09_genre_percentage_trends.png, id=292, 1150.7793pt x 569.2467pt>
 File: Images/09_genre_percentage_trends.png Graphic file (type png)
 <use Images/09_genre_percentage_trends.png>
 Package pdftex.def Info: Images/09_genre_percentage_trends.png  used on input line 419.
 (pdftex.def)             Requested size: 200.75996pt x 99.30696pt.
-<Images/10_genre_trends_heatmap.png, id=292, 1297.2465pt x 713.7867pt>
+<Images/10_genre_trends_heatmap.png, id=293, 1297.2465pt x 713.7867pt>
 File: Images/10_genre_trends_heatmap.png Graphic file (type png)
 <use Images/10_genre_trends_heatmap.png>
 Package pdftex.def Info: Images/10_genre_trends_heatmap.png  used on input line 425.
@@ -1414,9 +1414,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  99i,25n,118p,1527b,728s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Khanh\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10.pfb><C:/Users/Khanh/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on main.pdf (22 pages, 3419849 bytes).
+Output written on main.pdf (22 pages, 3420349 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
+ 406 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
  316 words of extra memory for PDF output out of 10000 (max. 10000000)
 
