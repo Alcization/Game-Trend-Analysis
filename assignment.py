@@ -5,6 +5,11 @@ import seaborn as sns
 import re
 import os
 from datetime import datetime
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, silhouette_score
 
 os.makedirs('charts', exist_ok=True)
 
@@ -281,13 +286,170 @@ plt.savefig('charts/10_genre_trends_heatmap.png', dpi=300, bbox_inches='tight')
 plt.close()
 print("   Chart saved: charts/10_genre_trends_heatmap.png")
 
-print("\n[9/9] Generating summary statistics and recommendations...")
+print("\n[9/11] Applying K-Means clustering...")
+
+df_ml = df.copy()
+df_ml['Release date'] = pd.to_datetime(df_ml['Release date'], errors='coerce')
+df_ml['Release year'] = df_ml['Release date'].dt.year.fillna(0)
+
+df_ml['Positive ratio'] = np.where(
+    (df_ml['Positive'] + df_ml['Negative']) > 0,
+    df_ml['Positive'] / (df_ml['Positive'] + df_ml['Negative']),
+    0
+)
+
+kmeans_features = [
+    'Price',
+    'Discount',
+    'DLC count',
+    'Positive',
+    'Negative',
+    'Recommendations',
+    'Average playtime forever',
+    'Achievements',
+    'Positive ratio'
+]
+
+X_kmeans = df_ml[kmeans_features].fillna(0)
+scaler_kmeans = StandardScaler()
+X_kmeans_scaled = scaler_kmeans.fit_transform(X_kmeans)
+
+n_clusters = 4
+kmeans_model = KMeans(n_clusters=n_clusters, random_state=42, n_init=20)
+df_ml['Cluster'] = kmeans_model.fit_predict(X_kmeans_scaled)
+
+sil_score = silhouette_score(X_kmeans_scaled, df_ml['Cluster'])
+print(f"   K-Means complete: {n_clusters} clusters, silhouette score = {sil_score:.3f}")
+
+cluster_profile = df_ml.groupby('Cluster')[kmeans_features].mean().round(2)
+print("\n   Cluster profiles (mean values):")
+print(cluster_profile)
+
+plt.figure(figsize=(12, 7))
+sns.scatterplot(
+    data=df_ml,
+    x='Price',
+    y='Positive ratio',
+    hue='Cluster',
+    palette='tab10',
+    alpha=0.6,
+    s=30
+)
+plt.title('K-Means Clusters: Price vs Positive Review Ratio', fontsize=14, fontweight='bold')
+plt.xlabel('Price (USD)')
+plt.ylabel('Positive review ratio')
+plt.legend(title='Cluster')
+plt.tight_layout()
+plt.savefig('charts/11_kmeans_clusters.png', dpi=300, bbox_inches='tight')
+plt.close()
+print("   Chart saved: charts/11_kmeans_clusters.png")
+
+print("\n[10/11] Applying Decision Tree classification...")
+
+dt_features = [
+    'Price',
+    'Discount',
+    'DLC count',
+    'Positive ratio',
+    'Recommendations',
+    'Average playtime forever',
+    'Achievements',
+    'Release year'
+]
+
+X_dt = df_ml[dt_features].fillna(0)
+y_dt = df_ml['Estimated owners']
+
+try:
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_dt,
+        y_dt,
+        test_size=0.2,
+        random_state=42,
+        stratify=y_dt
+    )
+except ValueError:
+    # Fallback when at least one class has too few samples for stratified split.
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_dt,
+        y_dt,
+        test_size=0.2,
+        random_state=42
+    )
+
+dt_model = DecisionTreeClassifier(
+    max_depth=6,
+    min_samples_leaf=30,
+    random_state=42,
+    class_weight='balanced'
+)
+dt_model.fit(X_train, y_train)
+y_pred = dt_model.predict(X_test)
+
+acc = accuracy_score(y_test, y_pred)
+print(f"   Decision Tree accuracy: {acc:.3f}")
+
+print("\n   Classification report:")
+print(classification_report(y_test, y_pred, zero_division=0))
+
+cm = confusion_matrix(y_test, y_pred, labels=estimated_owners_order)
+plt.figure(figsize=(14, 9))
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt='d',
+    cmap='GnBu',
+    xticklabels=estimated_owners_order,
+    yticklabels=estimated_owners_order
+)
+plt.title('Decision Tree Confusion Matrix (Estimated Owners)', fontsize=14, fontweight='bold')
+plt.xlabel('Predicted label')
+plt.ylabel('True label')
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.savefig('charts/12_decision_tree_confusion_matrix.png', dpi=300, bbox_inches='tight')
+plt.close()
+print("   Chart saved: charts/12_decision_tree_confusion_matrix.png")
+
+feature_importance = pd.Series(dt_model.feature_importances_, index=dt_features).sort_values(ascending=False)
+
+plt.figure(figsize=(12, 6))
+feature_importance.plot.bar(color='teal')
+plt.title('Decision Tree Feature Importance', fontsize=14, fontweight='bold')
+plt.xlabel('Feature')
+plt.ylabel('Importance score')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('charts/13_decision_tree_feature_importance.png', dpi=300, bbox_inches='tight')
+plt.close()
+print("   Chart saved: charts/13_decision_tree_feature_importance.png")
+
+plt.figure(figsize=(22, 12))
+plot_tree(
+    dt_model,
+    feature_names=dt_features,
+    class_names=dt_model.classes_,
+    filled=True,
+    rounded=True,
+    max_depth=3,
+    fontsize=7
+)
+plt.title('Decision Tree Visualization (Top 3 Levels)', fontsize=14, fontweight='bold')
+plt.tight_layout()
+plt.savefig('charts/14_decision_tree_plot.png', dpi=300, bbox_inches='tight')
+plt.close()
+print("   Chart saved: charts/14_decision_tree_plot.png")
+
+print("\n[11/11] Generating summary statistics and recommendations...")
 
 print("\n" + "=" * 80)
 print("SUMMARY STATISTICS")
 print("=" * 80)
 print(f"Total games analyzed: {len(df):,}")
 print(f"Popular games (200K+ owners): {len(df_popular):,}")
+print(f"K-Means silhouette score: {sil_score:.3f}")
+print(f"Decision Tree accuracy: {acc:.3f}")
 print(f"\nMost common genres in popular games:")
 for i, genre in enumerate(top_genres_popular, 1):
     count = genre_trends[genre].sum()
